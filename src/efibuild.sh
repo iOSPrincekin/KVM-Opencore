@@ -12,7 +12,7 @@ fi
 if [ "$OFFLINE_MODE" = "" ]; then
   OFFLINE_MODE=0
 fi
-OFFLINE_MODE="1"
+#OFFLINE_MODE="1"
 is_array()
 {
     # Detects if argument is an array, returns 1 on success, 0 otherwise
@@ -388,7 +388,7 @@ fi
 
 if [ "$NEW_BUILDSYSTEM" != "1" ]; then
   if [ "$OFFLINE_MODE" != "1" ]; then
-    updaterepo "https://github.com/acidanthera/audk" UDK master || exit 1
+    updaterepo "git@github.com:iOSPrincekin/audk.git" UDK dev || exit 1
   else
     echo "Working in offline mode. Skip UDK update"
   fi
