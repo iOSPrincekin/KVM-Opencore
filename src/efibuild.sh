@@ -314,7 +314,7 @@ if [ "${TOOLCHAINS[*]}" = "" ]; then
 fi
 
 if [ "${TARGETS[*]}" = "" ]; then
-  TARGETS=('DEBUG' 'RELEASE' 'NOOPT')
+  TARGETS=('DEBUG')
 elif [ "${RTARGETS[*]}" = "" ]; then
   RTARGETS=("${TARGETS[@]}")
 fi
