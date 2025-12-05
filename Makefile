@@ -193,8 +193,8 @@ $(OPENCORE_UDK_BUILD_DIR)/OpenCore.efi $(OPENCORE_UDK_BUILD_DIR)/OpenRuntime.efi
 $(OPENCORE_UDK_BUILD_DIR)/Bootstrap.efi $(OPENCORE_UDK_BUILD_DIR)/Shell.efi \
 $(OPENCORE_UDK_BUILD_DIR)/ResetSystem.efi $(OPENCORE_UDK_BUILD_DIR)/OpenCanopy.efi \
 $(OPENCORE_UDK_BUILD_DIR)/OpenHfsPlus.efi $(OPENCORE_UDK_BUILD_DIR)/OpenPartitionDxe.efi \
- :
-	cd src/OpenCorePkg && ARCHS=X64 ./build_oc.tool --skip-package $(OPENCORE_MODE)
+:
+	cd src/OpenCorePkg && PATH="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/usr/bin:/bin:$$PATH" ARCHS=X64 ./build_oc.tool --skip-package $(OPENCORE_MODE)
 
 # Tools
 
