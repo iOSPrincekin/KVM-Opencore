@@ -62,7 +62,7 @@ OpenCore-$(RELEASE_VERSION).dmg : Makefile $(EFI_FILES)
 	rm -f $@
 	hdiutil create -layout GPTSPUD -partitionType EFI -fs "FAT32" -megabytes 150 -volname EFI $@
 	mkdir -p OpenCore-Image
-	DEV_NAME=$$(hdiutil attach -nomount -plist $@ | xpath -e "/plist/dict/array/dict/key[text()='content-hint']/following-sibling::string[1][text()='EFI']/../key[text()='dev-entry']/following-sibling::string[1]/text()" 2> /dev/null) && \
+	DEV_NAME=$$(hdiutil attach -nomount -plist $@ | xpath -n -e "/plist/dict/array/dict/key[text()='content-hint']/following-sibling::string[1][text()='EFI']/../key[text()='dev-entry']/following-sibling::string[1]/text()" 2> /dev/null | head -1) && \
 		mount -tmsdos "$$DEV_NAME" OpenCore-Image
 	find EFI -type f -name ".DS_Store" -delete
 	cp -a EFI OpenCore-Image/
